@@ -37,6 +37,11 @@ public class BuildTimeMachineControl {
         long neededCopperWire = (long) (Math.round (bodyMassIndex * 0.1));
         long neededCrystal = 1;
         
+        System.out.println("Your body mass index of " + bodyMassIndex);
+        System.out.println("Requires: \n" + neededScrap + " Scrap Metal");
+        System.out.println(neededFerriteIron + " Pounds of Ferrite Iron");
+        System.out.println(neededCopperWire + " Pounds of Copper Wire");
+        System.out.println(neededCrystal + " Crystal");
         return 1;
     }    
 }
