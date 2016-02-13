@@ -24,7 +24,7 @@ public class BuildTimeMachineControlTest {
     public void testBuildTimeMachine() {
         System.out.println("BuildTimeMachine");
         long weight = 150;
-        long feet = 5;
+        long feet = 4;
         long inch = 2;
         BuildTimeMachineControl instance = new BuildTimeMachineControl();
         int expResult = 1;
