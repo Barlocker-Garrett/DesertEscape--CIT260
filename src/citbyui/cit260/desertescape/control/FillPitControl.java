@@ -16,6 +16,9 @@ public class FillPitControl {
         long gallons;
         gallons = (long) Math.round(height * width * length * 0.133680555556);
 
+        if (shovelSize == 0.8) {
+        }
+
         long neededSand = (long) (Math.round(gallons / shovelSize));
 
         if (neededSand == shovelFull) {
