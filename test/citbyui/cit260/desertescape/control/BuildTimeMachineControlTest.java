@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  * @author Garrett
  */
 public class BuildTimeMachineControlTest {
-    
+
     public BuildTimeMachineControlTest() {
     }
 
@@ -30,28 +30,28 @@ public class BuildTimeMachineControlTest {
         int expResult = 1;
         int result = instance.BuildTimeMachine(weight, feet, inch);
         assertEquals(expResult, result);
-        
+
         weight = -1;
         feet = 4;
         inch = 5;
         expResult = 0;
         result = instance.BuildTimeMachine(weight, feet, inch);
         assertEquals(expResult, result);
-        
+
         weight = 0;
         feet = 4;
         inch = 5;
         expResult = 0;
         result = instance.BuildTimeMachine(weight, feet, inch);
         assertEquals(expResult, result);
-        
+
         weight = 150;
         feet = -1;
         inch = 11;
         expResult = 0;
         result = instance.BuildTimeMachine(weight, feet, inch);
         assertEquals(expResult, result);
-        
+
         weight = 250;
         feet = 7;
         inch = 2;
@@ -59,5 +59,5 @@ public class BuildTimeMachineControlTest {
         result = instance.BuildTimeMachine(weight, feet, inch);
         assertEquals(expResult, result);
     }
-    
+
 }
