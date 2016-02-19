@@ -5,6 +5,8 @@
  */
 package citbyui.cit260.desertescape.control;
 
+import desertescape.DesertEscape;
+import desertescape.model.Game;
 import desertescape.model.Player;
 
 /**
@@ -23,6 +25,12 @@ public class ProgramController {
         p.setName(playerName);
         return p;
         
+    }
+
+    public static void createNewGame(Player player) {
+        Game g = new Game();
+        g.setPlayer(player);
+        DesertEscape.setGame(g);
     }
     
 }
