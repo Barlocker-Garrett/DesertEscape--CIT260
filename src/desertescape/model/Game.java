@@ -15,6 +15,19 @@ public class Game implements Serializable{
     //class instance variables
     private int totalTime;
     private int difficulty;
+    private Player player;
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public Game(Player player) {
+        this.player = player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
     
     public Game() {
     }
