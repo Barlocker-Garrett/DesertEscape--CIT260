@@ -31,7 +31,7 @@ public class StartProgramView {
         DesertEscape.setPlayer(player);
 
         displayWelcomeMessage(player.getName());
-        
+
         MainMenuView mainMenu = new MainMenuView();
         mainMenu.displayMenu();
 
