@@ -12,14 +12,14 @@ import java.util.Scanner;
  * @author doozi
  */
 public class HelpMenuView {
-    
+
     private final String menu = "\n"
             + "\nA - About this game"
             + "\nH - How to play"
             + "\nM - Movement"
             + "\nO - Objective"
             + "\nB - Back to main";
-    
+
     public HelpMenuView() {
 
     }
@@ -38,10 +38,10 @@ public class HelpMenuView {
         } while (selection != 'B');
 
     }
-    
+
     public void doAction(char selection) {
-        
-        switch(selection) {
+
+        switch (selection) {
             case 'A':
                 aboutGame();
                 break;
@@ -91,10 +91,10 @@ public class HelpMenuView {
     }
 
     private void movementHelp() {
-         System.out.println("Movement help");
+        System.out.println("Movement help");
     }
 
     private void objective() {
-         System.out.println("Objectives");
+        System.out.println("Objectives");
     }
 }
