@@ -11,7 +11,8 @@ import java.io.Serializable;
  *
  * @author Garrett
  */
-public class Game implements Serializable{
+public class Game implements Serializable {
+
     //class instance variables
     private int totalTime;
     private int difficulty;
@@ -28,7 +29,7 @@ public class Game implements Serializable{
     public void setPlayer(Player player) {
         this.player = player;
     }
-    
+
     public Game() {
     }
 
@@ -81,5 +82,5 @@ public class Game implements Serializable{
     public String toString() {
         return "Game{" + "totalTime=" + totalTime + ", difficulty=" + difficulty + '}';
     }
-    
+
 }
