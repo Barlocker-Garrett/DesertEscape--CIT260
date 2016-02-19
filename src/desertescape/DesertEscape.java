@@ -5,6 +5,7 @@
  */
 package desertescape;
 
+import citbyui.cit260.desertescape.view.StartProgramView;
 import desertescape.model.Game;
 import desertescape.model.Item;
 import desertescape.model.Player;
@@ -14,11 +15,19 @@ import desertescape.model.Player;
  * @author Garrett
  */
 public class DesertEscape {
-
+    
+    private static Player player;
+    private static Game game;
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        StartProgramView startProgram = new StartProgramView();
+        
+        startProgram.startProgram();
+        
         //Creation of an instance for Player
         Player playerOne = new Player();
         
@@ -47,5 +56,22 @@ public class DesertEscape {
         String itemInfo = food.toString();
         System.out.println(itemInfo);
     }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        DesertEscape.player = player;
+    }
+
+    public static Game getGame() {
+        return game;
+    }
+
+    public static void setGame(Game game) {
+        DesertEscape.game = game;
+    }
+    
     
 }
