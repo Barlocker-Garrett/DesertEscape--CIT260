@@ -83,18 +83,18 @@ public class HelpMenuView {
     }
 
     private void aboutGame() {
-        System.out.println("About the game");
+        System.out.println("You're stuck in a desert and you can escape by building time machine for some reason.");
     }
 
     private void howToPlay() {
-        System.out.println("How to play--You're welcome");
+        System.out.println("Move from location to location inspecting for items. Run if you think you'll be captured.");
     }
 
     private void movementHelp() {
-        System.out.println("Movement help");
+        System.out.println("Run - You randomly run to another area. \nShop - Go to shop to buy items");
     }
 
     private void objective() {
-        System.out.println("Objectives");
+        System.out.println("Don't die, build a time machine and live!");
     }
 }
