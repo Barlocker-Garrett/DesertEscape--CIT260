@@ -14,17 +14,17 @@ import desertescape.model.Player;
  * @author Garrett
  */
 public class ProgramController {
-    
-    public static Player createPlayer(String playerName){
-    
-        if(playerName == null){
+
+    public static Player createPlayer(String playerName) {
+
+        if (playerName == null) {
             return null;
         }
-        
+
         Player p = new Player();
         p.setName(playerName);
         return p;
-        
+
     }
 
     public static void createNewGame(Player player) {
@@ -32,5 +32,5 @@ public class ProgramController {
         g.setPlayer(player);
         DesertEscape.setGame(g);
     }
-    
+
 }
