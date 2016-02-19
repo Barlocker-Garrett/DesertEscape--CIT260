@@ -40,10 +40,10 @@ public class MainMenuView {
         } while (selection != 'Q');
 
     }
-    
+
     public void doAction(char selection) {
-        
-        switch(selection) {
+
+        switch (selection) {
             case 'N':
                 startNewGame();
                 break;
