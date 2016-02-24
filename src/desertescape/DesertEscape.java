@@ -5,6 +5,7 @@
  */
 package desertescape;
 
+import citbyui.cit260.desertescape.view.RunMenuView;
 import citbyui.cit260.desertescape.view.StartProgramView;
 import desertescape.model.Game;
 import desertescape.model.Item;
@@ -27,6 +28,9 @@ public class DesertEscape {
         StartProgramView startProgram = new StartProgramView();
         
         startProgram.startProgram();
+        
+        RunMenuView runMenu = new RunMenuView();
+        runMenu.runMenu();
         
         //Creation of an instance for Player
         Player playerOne = new Player();
