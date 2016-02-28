@@ -11,6 +11,10 @@ package citbyui.cit260.desertescape.control;
  */
 public class CutDownTreeControl {
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
 
         double paces = 3.0;
@@ -61,5 +65,10 @@ public class CutDownTreeControl {
 
         return treeHeight;
     }
+
+    double CutDownTree(int paces, int angle, double treeHeight, int crevasse) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 
 }
