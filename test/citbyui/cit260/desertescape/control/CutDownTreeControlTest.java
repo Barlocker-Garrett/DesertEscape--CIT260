@@ -33,22 +33,10 @@ public class CutDownTreeControlTest {
         CutDownTreeControl instance = new CutDownTreeControl();
         double expResult = 34.6;
         double result;
-        result = instance.CutDownTree(paces, angle, treeHeight, crevasse);
+        result = instance.CutDownTree(paces, angle, crevasse);
         /*assertEquals(expResult, result);*/
         
         
-    }
-
-    /**
-     * Test of main method, of class CutDownTreeControl.
-     */
-    @Test
-    public void testMain() {
-        System.out.println("main");
-        String[] args = null;
-        CutDownTreeControl.main(args);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

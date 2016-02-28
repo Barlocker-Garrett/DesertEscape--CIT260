@@ -15,7 +15,7 @@ public class CutDownTreeControl {
      *
      * @param args
      */
-    public static void main(String[] args) {
+    public void something() {
 
         double paces = 3.0;
         double angle = 23.5;
@@ -37,7 +37,7 @@ public class CutDownTreeControl {
      * @param crevasse
      * @return
      */
-    public static double CutDownTree(double paces, double angle, double crevasse) {
+    public double CutDownTree(double paces, double angle, double crevasse) {
         System.out.println("Please take some steps");
         //return 0;
 
@@ -65,10 +65,5 @@ public class CutDownTreeControl {
 
         return treeHeight;
     }
-
-    double CutDownTree(int paces, int angle, double treeHeight, int crevasse) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
 
 }
