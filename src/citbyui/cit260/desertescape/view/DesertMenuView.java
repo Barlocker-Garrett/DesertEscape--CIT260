@@ -32,7 +32,7 @@ public class DesertMenuView extends View {
             case "Run":
                 run = true;
                 RunMenuView runMenu = new RunMenuView();
-                runMenu.runMenu();
+                runMenu.display();
                 break;
             case "Inspect":
                 System.out.println("NEED TO IMPLEMENT ITEMS AND COLLECTION CONTROLLER");
