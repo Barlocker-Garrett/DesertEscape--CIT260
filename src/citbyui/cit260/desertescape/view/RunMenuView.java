@@ -5,31 +5,14 @@
  */
 package citbyui.cit260.desertescape.view;
 
-import java.util.Scanner;
-
 /**
  *
  * @author Garrett
  */
-public class RunMenuView {
+public class RunMenuView extends View{
 
     public RunMenuView() {
-
-    }
-
-    public void runMenu() {
-
-        displayLocations();
-
-        String location = getLocation();
-
-        displayLocationMessage(location);
-
-    }
-
-    private void displayLocations() {
-        String locations = "";
-        locations = "=================="
+        super("=================="
                 + "\nDesert"
                 + "\nPyramid"
                 + "\nCaves"
@@ -37,69 +20,49 @@ public class RunMenuView {
                 + "\nCliffs"
                 + "\nMountain"
                 + "\nShop"
-                + "\n==================";
-        System.out.println(locations);
+                + "\n==================");
     }
-
-    public String getLocation() {
-        boolean isValidLocation = false;
-        String location = "";
-        Scanner keyboard = new Scanner(System.in);
-
+    
+    @Override
+    public boolean doAction(String value) {
+        boolean valid = true;
         System.out.println("Where are you running to: ");
-
-        while (!isValidLocation) {
-            String input = keyboard.nextLine();
-            if (input.isEmpty()) {
-            } else {
-                input = input.substring(0, 1).toUpperCase() + input.substring(1).toLowerCase();
-
-                switch (input) {
+        value = value.substring(0, 1).toUpperCase() + value.substring(1).toLowerCase();
+        String location;
+        switch (value) {
                     case "D":
                     case "Desert":
-                        isValidLocation = true;
                         location = "Desert";
                         break;
                     case "P":
                     case "Pyramid":
-                        isValidLocation = true;
                         location = "Pyramid";
                         break;
                     case "Ca":
                     case "Caves":
-                        isValidLocation = true;
                         location = "Caves";
                         break;
                     case "A":
                     case "Alien Camp":
-                        isValidLocation = true;
                         location = "Alien Camp";
                         break;
                     case "Cl":
                     case "Cliffs":
-                        isValidLocation = true;
                         location = "Cliffs";
                         break;
                     case "M":
                     case "Mountain":
-                        isValidLocation = true;
                         location = "Mountain";
                         break;
                     case "S":
                     case "Shop":
-                        isValidLocation = true;
                         location = "Shop";
                         break;
                     default:
                         System.out.println("That is not a real location, please try again.");
-                        break; 
+                        valid = false;
+                        return valid;
                 }
-            }
-        }
-        return location;
-    }
-
-    private void displayLocationMessage(String location) {
         System.out.println("=============================");
         switch (location)
         {
@@ -126,6 +89,6 @@ public class RunMenuView {
                 break;
         }        
         System.out.println("=============================");
+         return valid;
+        }
     }
-
-}
