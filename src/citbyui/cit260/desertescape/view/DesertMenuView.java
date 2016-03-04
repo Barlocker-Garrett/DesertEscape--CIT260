@@ -63,7 +63,7 @@ public class DesertMenuView {
                 else if ("M".equals(input) || "Main menu".equals(input))
                 {
                     MainMenuView mainMenu = new MainMenuView();
-                    mainMenu.displayMenu();
+                    mainMenu.display();
                 }
             }
             
