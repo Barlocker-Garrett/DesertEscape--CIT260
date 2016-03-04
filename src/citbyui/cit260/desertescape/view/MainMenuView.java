@@ -13,76 +13,45 @@ import java.util.Scanner;
  *
  * @author doozi
  */
-public class MainMenuView {
+public class MainMenuView extends View{
 
-    private final String menu = "\n"
+    
+
+    public MainMenuView() {
+        super("\n"
             + "\nN - Start new game"
             + "\nL - Load saved game"
             + "\nS - Save current game"
             + "\nH - Help menu"
-            + "\nQ - Quit";
-
-    public MainMenuView() {
-
+            + "\nQ - Quit");
     }
 
-    public void displayMenu() {
-
-        char selection = ' ';
-
-        do {
-            System.out.println(menu);
-
-            String input = getInput();
-            selection = input.charAt(0);
-            doAction(selection);
-
-        } while (selection != 'Q');
-
-    }
-
-    public void doAction(char selection) {
-
-        switch (selection) {
-            case 'N':
+    @Override
+    public boolean doAction(String value) {
+        boolean valid = true;
+        switch (value) {
+            case "N":
                 startNewGame();
                 break;
-            case 'L':
+            case "L":
                 loadSavedGame();
                 break;
-            case 'S':
+            case "S":
                 saveCurrentGame();
                 break;
-            case 'H':
+            case "H":
                 helpMenu();
                 break;
-            case 'Q':
+            case "Q":
                 break;
             default:
+                valid = false;
                 System.out.println("Invalid option");
-                break;
+                return valid;
         }
+        return valid;
     }
 
-    public String getInput() {
-        Scanner keyboard = new Scanner(System.in);
-        String input = null;
-        boolean isValid = false;
-
-        while (!isValid) {
-            System.out.println("Please select an option: ");
-            input = keyboard.nextLine();
-            input = input.trim();
-
-            if (input == null || input.length() == 0) {
-                System.out.println("Invalid input - please enter a valid character");
-            } else {
-                isValid = true;
-            }
-        }
-
-        return input.toUpperCase();
-    }
 
     private void startNewGame() {
         ProgramController.createNewGame(DesertEscape.getPlayer());
