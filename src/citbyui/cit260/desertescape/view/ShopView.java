@@ -11,47 +11,36 @@ import java.util.Scanner;
  *
  * @author doozi
  */
-public class ShopView {
+public class ShopView extends View {
 
-    private final String menu = "\n"
-            + "\nY - Buy Items"
-            + "\nS - Sell Items"
-            + "\nB - Back to main";
 
     public ShopView() {
+    super("\n"
+            + "\nBuy - Buy Items"
+            + "\nSell - Sell Items"
+            + "\nQ - Quit to main");
 
     }
 
-    public void displayMenu() {
 
-        char selection = ' ';
 
-        do {
-            System.out.println(menu);
-
-            String input = getInput();
-            selection = input.charAt(0);
-            doAction(selection);
-
-        } while (selection != 'B');
-
-    }
-
-    public void doAction(char selection) {
-
+    public boolean doAction(String selection) {
+        boolean valid = true;
         switch (selection) {
-            case 'Y':
+            case "Buy":
                 buyItems();
                 break;
-            case 'S':
+            case "Sell":
                 sellItems();
                 break;
-            case 'B':
+            case "Q":
                 break;
             default:
                 System.out.println("Invalid option");
-                break;
+                valid = false;
+                return valid;
         }
+        return valid;
     }
 
     public String getInput() {
