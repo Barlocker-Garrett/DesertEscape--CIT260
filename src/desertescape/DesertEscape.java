@@ -34,7 +34,7 @@ public class DesertEscape {
         desertMenu.display();
         
         RunMenuView runMenu = new RunMenuView();
-        runMenu.runMenu();
+        runMenu.display();
         
         //Creation of an instance for Player
         Player playerOne = new Player();
