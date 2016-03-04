@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author doozi
  */
-public class BuyMenuView extends View {
+public abstract class BuyMenuView extends View {
 
 
     public BuyMenuView() {
