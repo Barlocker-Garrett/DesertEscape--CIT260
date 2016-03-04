@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author doozi
  */
-public class SellMenuView extends View {
+public abstract class SellMenuView extends View {
 
 
     public SellMenuView() {
@@ -68,7 +68,7 @@ public class SellMenuView extends View {
                 //add item names to inventory   }
     
 
-    private void sellItem1() {
+    //private void sellItem1() {
         System.out.println("This is where you can sell an item.");
     }
 
