@@ -7,7 +7,6 @@ package citbyui.cit260.desertescape.view;
 
 import citbyui.cit260.desertescape.control.ProgramController;
 import desertescape.DesertEscape;
-import java.util.Scanner;
 
 /**
  *
