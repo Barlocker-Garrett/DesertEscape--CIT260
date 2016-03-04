@@ -5,6 +5,7 @@
  */
 package desertescape;
 
+import citbyui.cit260.desertescape.view.DesertMenuView;
 import citbyui.cit260.desertescape.view.RunMenuView;
 import citbyui.cit260.desertescape.view.StartProgramView;
 import desertescape.model.Game;
@@ -28,6 +29,9 @@ public class DesertEscape {
         StartProgramView startProgram = new StartProgramView();
         
         startProgram.startProgram();
+        
+        DesertMenuView desertMenu = new DesertMenuView();
+        desertMenu.display();
         
         RunMenuView runMenu = new RunMenuView();
         runMenu.runMenu();
