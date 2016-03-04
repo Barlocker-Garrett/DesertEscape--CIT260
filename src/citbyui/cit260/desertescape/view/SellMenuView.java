@@ -65,11 +65,12 @@ public abstract class SellMenuView extends View {
                 System.out.println("Invalid option");
                 break;
         }
-                //add item names to inventory   }
+                //add item names to inventory   
+    }
     
 
-    //private void sellItem1() {
-        System.out.println("This is where you can sell an item.");
+    private void sellItem1() {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     private void sellItem2() {
