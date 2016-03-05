@@ -14,30 +14,27 @@ import java.util.Scanner;
  *
  * @author Garrett
  */
-public class StartProgramView {
+public class StartProgramView{
 
     public StartProgramView() {
+        startProgram();
 
-    }
-
-    public void startProgram() {
-
-        displayBanner();
-
-        String playerName = getPlayerName();
+        String playerName = getName();
 
         Player player = ProgramController.createPlayer(playerName);
 
         DesertEscape.setPlayer(player);
 
-        displayWelcomeMessage(player.getName());
+        doAction(player.getName());
 
         MainMenuView mainMenu = new MainMenuView();
         mainMenu.display();
-
+        
+        display();
     }
 
-    public void displayBanner() {
+    public void startProgram() {
+
         String welcome = "";
         welcome = "========================"
                 + "\nWelcome to Desert Escape"
@@ -47,8 +44,8 @@ public class StartProgramView {
         System.out.println(welcome);
     }
 
-    public String getPlayerName() {
 
+    public String display(){
         boolean isValidName = false;
         String name = "";
         Scanner keyboard = new Scanner(System.in);
@@ -68,13 +65,36 @@ public class StartProgramView {
 
         return name;
     }
+    
+        public String getName(){
+        boolean isValidName = false;
+        String name = "";
+        Scanner keyboard = new Scanner(System.in);
 
-    public void displayWelcomeMessage(String playerName) {
+        System.out.println("Please enter your name: ");
 
+        while (!isValidName) {
+            String input = keyboard.nextLine();
+
+            if (input == null || input.length() >= 2) {
+                isValidName = true;
+                name = input;
+            } else {
+                System.out.println("Input is invalid - name must be at least 2 characters");
+            }
+        }
+
+        return name;
+    }
+        
+
+    public boolean doAction(String playerName) {
+        boolean valid = true;
         System.out.println("=============================");
         System.out.println("Welcome " + playerName + ".");
         System.out.println("Hope you have fun!");
         System.out.println("=============================");
+        return valid;
 
     }
 
