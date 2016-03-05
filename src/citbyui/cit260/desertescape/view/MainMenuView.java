@@ -54,7 +54,8 @@ public class MainMenuView extends View{
 
     private void startNewGame() {
         ProgramController.createNewGame(DesertEscape.getPlayer());
-        System.out.println("CALLED START NEW GAME - NOT IMPLEMENTED YET");
+        DesertMenuView desertMenu = new DesertMenuView();
+        desertMenu.display();
     }
 
     private void loadSavedGame() {
