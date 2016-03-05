@@ -27,14 +27,7 @@ public class DesertEscape {
     public static void main(String[] args) {
         
         StartProgramView startProgram = new StartProgramView();
-        
         startProgram.startProgram();
-        
-        DesertMenuView desertMenu = new DesertMenuView();
-        desertMenu.display();
-        
-        RunMenuView runMenu = new RunMenuView();
-        runMenu.display();
         
         //Creation of an instance for Player
         Player playerOne = new Player();
