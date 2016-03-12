@@ -17,6 +17,24 @@ public class Location implements Serializable {
     // class instance variables
     private LocationType type;
     private Item item;
+    private int row;
+
+    public int getRow() {
+        return row;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    public int getCol() {
+        return col;
+    }
+
+    public void setCol(int col) {
+        this.col = col;
+    }
+    private int col;
 
     public Item getItem() {
         return item;
