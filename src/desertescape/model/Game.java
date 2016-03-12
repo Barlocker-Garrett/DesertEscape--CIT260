@@ -17,6 +17,7 @@ public class Game implements Serializable {
     private int totalTime;
     private int difficulty;
     private Player player;
+    private Map map;
 
     public Player getPlayer() {
         return player;
@@ -82,5 +83,15 @@ public class Game implements Serializable {
     public String toString() {
         return "Game{" + "totalTime=" + totalTime + ", difficulty=" + difficulty + '}';
     }
+
+    public void setMap(Map gameMap) {
+        System.out.println(gameMap);
+    }
+    
+    public Map getMap() {
+        return map;
+    }
+
+    
 
 }
