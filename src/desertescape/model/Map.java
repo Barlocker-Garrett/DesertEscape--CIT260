@@ -14,64 +14,49 @@ import java.io.Serializable;
 public class Map implements Serializable {
     
     //class instance variables
-    private int numRows;
-    private int numCols;
+    public static final int NUM_ROWS = 5;
+    public static final int NUM_COLS = 5;
+    
+    private Location[][] matrix;
 
     public Map() {
+        matrix = new Location[NUM_ROWS][NUM_COLS];
+        init();
     }
     
-    
-
-    public int getNumRows() {
-        return numRows;
-    }
-
-    public void setNumRows(int numRows) {
-        this.numRows = numRows;
-    }
-
-    public int getNumCols() {
-        return numCols;
-    }
-
-    public void setNumCols(int numCols) {
-        this.numCols = numCols;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 37 * hash + this.numRows;
-        hash = 37 * hash + this.numCols;
-        return hash;
-    }
-
-    @Override
-    public String toString() {
-        return "Map{" + "numRows=" + numRows + ", numCols=" + numCols + '}';
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
+    public void init() {
+        Location loc = new Location();
+        loc.setType(LocationType.values()[0]);
+        matrix[0][0] = loc;
+        for (int row = 0; row < NUM_ROWS; row++) {
+            for (int col = 1; col < NUM_COLS; col++) {
+                loc.setType(LocationType.values()[(int) (Math.random() * LocationType.values().length)]);
+                
+                matrix[row][col] = loc;
+            }
         }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Map other = (Map) obj;
-        if (this.numRows != other.numRows) {
-            return false;
-        }
-        if (this.numCols != other.numCols) {
-            return false;
-        }
-        return true;
     }
     
+    public String getMapString() {
+        String rtn = "";
+        
+        for (int row = 0; row < NUM_ROWS; row++){
+            for (int col = 0; col < NUM_COLS; col++){
+                rtn += matrix[row][col].getType().name().charAt(0);
+                
+                if(matrix[row][col].getItem() != null){
+                    rtn += matrix[row][col].getItem().getName().charAt(0);
+                }
+                rtn += "\t";
+            }
+            rtn += "\n";
+        }
+        
+        return rtn;
+    }
     
-    
+    public Location getLocation(int row, int col) {
+        return matrix[row][col];
+    }
+
 }
