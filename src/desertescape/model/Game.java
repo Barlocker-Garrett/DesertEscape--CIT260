@@ -85,7 +85,7 @@ public class Game implements Serializable {
     }
 
     public void setMap(Map gameMap) {
-        System.out.println(gameMap);
+        map = gameMap;
     }
     
     public Map getMap() {
