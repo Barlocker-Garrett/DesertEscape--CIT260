@@ -45,7 +45,6 @@ public class BuyMenuView {
     }
 
     public void doAction(char selection) {
-
         switch (selection) {
             case '1':
                 buyItem1();
