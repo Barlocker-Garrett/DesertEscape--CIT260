@@ -42,11 +42,10 @@ public class MainMenuView extends View{
                 helpMenu();
                 break;
             case "Q":
+                valid = false;
                 break;
             default:
-                valid = false;
                 System.out.println("Invalid option");
-                return valid;
         }
         return valid;
     }
@@ -54,7 +53,7 @@ public class MainMenuView extends View{
 
     private void startNewGame() {
         ProgramController.createNewGame(DesertEscape.getPlayer());
-        DesertMenuView desertMenu = new DesertMenuView();
+        GameMenuView desertMenu = new GameMenuView();
         desertMenu.display();
     }
 
