@@ -6,6 +6,8 @@
 package desertescape.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -17,8 +19,23 @@ public class Player implements Serializable {
     //class instance variables
     private String name;
     private int numLives;
+    List<Item> inventory;
+    Location location;
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
 
     public Player() {
+        inventory = new ArrayList<>();
+    }
+    
+    public void addItem(Item i) {
+        inventory.add(i);
     }
 
     public String getName() {
