@@ -5,15 +5,15 @@
  */
 package citbyui.cit260.desertescape.view;
 
-import java.util.Scanner;
-
 /**
  *
  * @author doozi
  */
-public class SellMenuView {
+public abstract class SellMenuView extends View {
 
-    private final String menu = "\n"
+
+    public SellMenuView() {
+    super("\n"
             + "\n1 - Sell Item 1"
             + "\n2 - Sell Item 2"
             + "\n3 - Sell Item 3"
@@ -23,25 +23,7 @@ public class SellMenuView {
             + "\n7 - Sell Item 7"
             + "\n8 - Sell Item 8"
             + "\n9 - Sell Item 9"
-            + "\n0 - Sell Item 10";
-
-    public SellMenuView() {
-
-    }
-
-    public void displayMenu() {
-
-        char selection = ' ';
-
-        do {
-            System.out.println(menu);
-
-            String input = getInput();
-            selection = input.charAt(0);
-            doAction(selection);
-
-        } while (selection != 'B');
-
+            + "\n0 - Sell Item 10");
     }
 
     public void doAction(char selection) {
@@ -81,30 +63,12 @@ public class SellMenuView {
                 System.out.println("Invalid option");
                 break;
         }
+                //add item names to inventory   
     }
-
-    public String getInput() {
-        Scanner keyboard = new Scanner(System.in);
-        String input = null;
-        boolean isValid = false;
-
-        while (!isValid) {
-            System.out.println("Please select an option: ");
-            input = keyboard.nextLine();
-            input = input.trim();
-
-            if (input == null || input.length() == 0) {
-                System.out.println("Invalid input - please enter a valid character");
-            } else {
-                isValid = true;
-            }
-        }
-
-        return input.toUpperCase();
-    }
+    
 
     private void sellItem1() {
-        System.out.println("This is where you can sell an item.");
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     private void sellItem2() {

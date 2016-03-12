@@ -22,8 +22,12 @@ public class ShopView extends View {
 
     }
 
-
-
+    /**
+     *
+     * @param selection
+     * @return
+     */
+    @Override
     public boolean doAction(String selection) {
         boolean valid = true;
         switch (selection) {
@@ -43,6 +47,7 @@ public class ShopView extends View {
         return valid;
     }
 
+    @Override
     public String getInput() {
         Scanner keyboard = new Scanner(System.in);
         String input = null;
@@ -64,10 +69,20 @@ public class ShopView extends View {
     }
 
     private void buyItems() {
-        SellMenuView SellMenu = new SellMenuView();
+        SellMenuView SellMenu = new SellMenuView() {
+            @Override
+            public boolean doAction(String value) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        };
         sellMenu.displayMenu();    }
 
     private void sellItems() {
-        BuyMenuView BuyMenu = new BuyMenuView();
+        BuyMenuView BuyMenu = new BuyMenuView() {
+            @Override
+            public boolean doAction(String value) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        };
         buyMenu.displayMenu();     }
 }

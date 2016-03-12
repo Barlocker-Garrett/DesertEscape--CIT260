@@ -11,9 +11,11 @@ import java.util.Scanner;
  *
  * @author doozi
  */
-public class BuyMenuView {
+public abstract class BuyMenuView extends View {
 
-    private final String menu = "\n"
+
+    public BuyMenuView() {
+   super("\n"
             + "\n1 - Buy Item 1"
             + "\n2 - Buy Item 2"
             + "\n3 - Buy Item 3"
@@ -23,28 +25,12 @@ public class BuyMenuView {
             + "\n7 - Buy Item 7"
             + "\n8 - Buy Item 8"
             + "\n9 - Buy Item 9"
-            + "\n0 - Buy Item 10";
-
-    public BuyMenuView() {
-
+            + "\n0 - Buy Item 10");
     }
 
-    public void displayBuyMenu() {
+    public boolean doAction(char selection) {
+        boolean buyItem = false;
 
-        char selection = ' ';
-
-        do {
-            System.out.println(menu);
-
-            String input = getInput();
-            selection = input.charAt(0);
-            doAction(selection);
-
-        } while (selection != 'B');
-
-    }
-
-    public void doAction(char selection) {
         switch (selection) {
             case '1':
                 buyItem1();
@@ -78,28 +64,9 @@ public class BuyMenuView {
                 break;
             default:
                 System.out.println("Invalid option");
-                break;
+                return buyItem;
         }
-    }
-
-    public String getInput() {
-        Scanner keyboard = new Scanner(System.in);
-        String input = null;
-        boolean isValid = false;
-
-        while (!isValid) {
-            System.out.println("Please select an option: ");
-            input = keyboard.nextLine();
-            input = input.trim();
-
-            if (input == null || input.length() == 0) {
-                System.out.println("Invalid input - please enter a valid character");
-            } else {
-                isValid = true;
-            }
-        }
-
-        return input.toUpperCase();
+        return buyItem;  //need to add item names to inventory
     }
 
     private void buyItem1() {
