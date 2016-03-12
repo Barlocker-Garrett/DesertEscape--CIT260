@@ -15,6 +15,16 @@ import java.util.Objects;
 public class Location implements Serializable {
     
     // class instance variables
+    private LocationType type;
+    private Item item;
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
     private String locationType;
     private String descriptrion;
     private String locationEvent;
@@ -22,7 +32,13 @@ public class Location implements Serializable {
     public Location() {
     }
     
-    
+     public LocationType getType() {
+        return type;
+    }
+
+    public void setType(LocationType type) {
+        this.type = type;
+    }
 
     public String getLocationType() {
         return locationType;
