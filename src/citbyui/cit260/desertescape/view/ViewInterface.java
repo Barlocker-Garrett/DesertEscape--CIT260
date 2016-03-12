@@ -10,7 +10,6 @@ package citbyui.cit260.desertescape.view;
  * @author Garrett
  */
 public interface ViewInterface {
-    
     public void display();
     public String getInput();
     public boolean doAction(String value);
