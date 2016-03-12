@@ -31,7 +31,9 @@ public class Map implements Serializable {
             for (int col = 0; col < NUM_COLS; col++) {
                 Location loc = new Location();
                 loc.setType(LocationType.values()[(int) (Math.random() * LocationType.values().length)]);
-                System.out.println(loc);
+                loc.setRow(row);
+                loc.setCol(col);
+                
                 matrix[row][col] = loc;
             }
         }
