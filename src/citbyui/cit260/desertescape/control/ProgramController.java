@@ -7,7 +7,11 @@ package citbyui.cit260.desertescape.control;
 
 import desertescape.DesertEscape;
 import desertescape.model.Game;
+import desertescape.model.Item;
+import desertescape.model.Map;
 import desertescape.model.Player;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -30,7 +34,72 @@ public class ProgramController {
     public static void createNewGame(Player player) {
         Game g = new Game();
         g.setPlayer(player);
+        
+        Map gameMap = new Map();
+        g.setMap(gameMap);
+        
+        populateMapWithItems(gameMap);
+        
+        player.setLocation(gameMap.getLocation(0,0));
+        
         DesertEscape.setGame(g);
     }
+    
+    public static void populateMapWithItems(Map map){
+        
+        List<Item> items = createItemList();
+        boolean done = false;
+        
+        for(Item i : items){
+            
+            do {
+                int row = (int)(Math.random() * Map.NUM_ROWS);
+                int col = (int)(Math.random() * Map.NUM_COLS);
+                    if (map.getLocation(row,col).getItem() == null) {
+                        map.getLocation(row, col).setItem(i);
+                        done = true;
+                    }
+            } while(!done);
+        }
+        
+    }
 
+    public static List<Item> createItemList (){
+        
+        List<Item> itemList = new ArrayList<>();
+        
+        Item water = new Item();
+        water.setName("Water");
+        water.setDescription("Mostly fresh, clean, and clear");
+        water.setValue(5);
+        itemList.add(water);
+        
+        Item steak = new Item();
+        steak.setName("Steak");
+        steak.setDescription("Rare like real men like it");
+        steak.setValue(4);
+        itemList.add(steak);
+        
+        Item shirt = new Item();
+        shirt.setName("Shirt");
+        shirt.setDescription("A shirt if you can call it that, more like rags");
+        shirt.setValue(1);
+        itemList.add(shirt);
+        
+        Item knife = new Item();
+        knife.setName("Knife");
+        knife.setDescription("A knife, if you count butter-knifes");
+        knife.setValue(2);
+        itemList.add(knife);
+        
+        Item medicine = new Item();
+        medicine.setName("Medicine");
+        medicine.setDescription("Improve your health, if hurt, or sick");
+        medicine.setValue(4);
+        itemList.add(medicine);
+
+        return itemList;
+        
+    }
+    
 }
