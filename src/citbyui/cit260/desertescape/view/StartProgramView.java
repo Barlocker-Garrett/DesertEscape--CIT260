@@ -19,7 +19,7 @@ public class StartProgramView{
     public StartProgramView() {
         startProgram();
 
-        String playerName = getName();
+        String playerName = display();
 
         Player player = ProgramController.createPlayer(playerName);
 
@@ -30,7 +30,6 @@ public class StartProgramView{
         MainMenuView mainMenu = new MainMenuView();
         mainMenu.display();
         
-        display();
     }
 
     public void startProgram() {
@@ -65,29 +64,7 @@ public class StartProgramView{
 
         return name;
     }
-    
-        public String getName(){
-        boolean isValidName = false;
-        String name = "";
-        Scanner keyboard = new Scanner(System.in);
-
-        System.out.println("Please enter your name: ");
-
-        while (!isValidName) {
-            String input = keyboard.nextLine();
-
-            if (input == null || input.length() >= 2) {
-                isValidName = true;
-                name = input;
-            } else {
-                System.out.println("Input is invalid - name must be at least 2 characters");
-            }
-        }
-
-        return name;
-    }
         
-
     public boolean doAction(String playerName) {
         boolean valid = true;
         System.out.println("=============================");
