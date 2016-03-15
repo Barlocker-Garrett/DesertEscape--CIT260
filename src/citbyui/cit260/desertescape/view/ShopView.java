@@ -18,6 +18,7 @@ public class ShopView extends View {
     super("\n"
             + "\nBuy - Buy Items"
             + "\nSell - Sell Items"
+            + "\nView - View Inventory"
             + "\nQ - Quit to main");
 
     }
@@ -36,6 +37,9 @@ public class ShopView extends View {
                 break;
             case "Sell":
                 sellItems();
+                break;
+            case "View":
+                viewInventory();
                 break;
             case "Q":
                 break;
@@ -85,4 +89,17 @@ public class ShopView extends View {
             }
         };
         buyMenu.displayMenu();     }
+
+    private void viewInventory() {
+        String numItem0 = null;
+        System.out.println("You have :" + numItem0);
+        String numItem1 = null;
+        System.out.println("You have :" + numItem1);
+        String numItem2 = null;
+        System.out.println("You have :" + numItem2);
+        String numItem3 = null;
+        System.out.println("You have :" + numItem3);
+        String numItem4 = null;
+        System.out.println("You have :" + numItem4);
+    }
 }
