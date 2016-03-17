@@ -18,7 +18,7 @@ import desertescape.model.Player;
  */
 public class MovementController {
     
-    public boolean moveNorth(Game game) {
+    public void moveNorth(Game game) {
         
         Player player = game.getPlayer();
         Location currentLocation = player.getLocation();
@@ -31,7 +31,6 @@ public class MovementController {
             
             Location newLocation = map.getLocation(newRow, currentCol);
             player.setLocation(newLocation);
-            return true;
         }
         else {
             int currentCol = currentLocation.getCol();
@@ -43,10 +42,9 @@ public class MovementController {
             player.setLocation(newLocation);
             
         }
-        return true;
     }
     
-    public boolean moveEast(Game game) {
+    public void moveEast(Game game) {
         
         Player player = game.getPlayer();
         Location currentLocation = player.getLocation();
@@ -54,16 +52,14 @@ public class MovementController {
         
         if(currentLocation.getCol() == NUM_COLS - 1) {
             player.setLocation(map.getLocation(currentLocation.getRow(), 0 ));
-            return true;
         }
         else {
             player.setLocation(map.getLocation(currentLocation.getRow(), currentLocation.getCol() + 1));
             
         }
-        return true;
     }
     
-    public boolean moveWest(Game game) {
+    public void moveWest(Game game) {
         
         Player player = game.getPlayer();
         Location currentLocation = player.getLocation();
@@ -71,16 +67,14 @@ public class MovementController {
         
         if(currentLocation.getCol() == 0) {
             player.setLocation(map.getLocation(currentLocation.getRow(), NUM_COLS - 1 ));
-            return true;
         }
         else {
             player.setLocation(map.getLocation(currentLocation.getRow(), currentLocation.getCol() - 1));
             
         }
-        return true;
     }
     
-    public boolean moveSouth(Game game) {
+    public void moveSouth(Game game) {
         
         Player player = game.getPlayer();
         Location currentLocation = player.getLocation();
@@ -88,12 +82,10 @@ public class MovementController {
         
         if(currentLocation.getRow() == NUM_ROWS - 1) {
             player.setLocation(map.getLocation(0, currentLocation.getCol()));
-            return true;
         }
         else {
             player.setLocation(map.getLocation(currentLocation.getRow() + 1, currentLocation.getCol()));
             
         }
-        return true;
     }
 }
