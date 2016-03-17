@@ -22,10 +22,19 @@ public class DesertEscape {
     /**
      * @param args the command line arguments
      */
+    @SuppressWarnings("CallToPrintStackTrace")
     public static void main(String[] args) {
         
         StartProgramView startProgram = new StartProgramView();
-        startProgram.startProgram();
+        try {
+            // create StartProgram and Start the program
+            startProgram.startProgram();
+        } catch (Throwable te) {
+            System.out.println(te.getMessage());
+            te.printStackTrace();
+            startProgram.startProgram();
+        }
+        
     }
 
     public static Player getPlayer() {
