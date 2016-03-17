@@ -46,6 +46,7 @@ public class MainMenuView extends View{
                 break;
             default:
                 System.out.println("Invalid option");
+                valid = false;
         }
         return valid;
     }
