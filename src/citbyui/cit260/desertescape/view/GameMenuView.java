@@ -56,16 +56,16 @@ public class GameMenuView extends View {
                 break;
             case 'N':
                 moveNorth();
-                break;
+                return false;
             case 'E':
                 moveEast();
-                break;
+                return false;
             case 'S':
                 moveSouth();
-                break;
+                return false;
             case 'W':
                 moveWest();
-                break;
+                return false;
             case 'C':
                 currentLocation();
                 break;
