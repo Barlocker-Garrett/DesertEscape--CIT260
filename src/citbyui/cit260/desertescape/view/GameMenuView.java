@@ -41,7 +41,8 @@ public class GameMenuView extends View {
                 System.out.println("NEED TO IMPLEMENT ITEMS AND COLLECTION CONTROLLER");
                 break;
             case 'F':
-                System.out.println("CALL THE FILL PIT VIEW");
+                FillPitView fillPit = new FillPitView();
+                fillPit.display();
                 break;
             case 'M':
                 MainMenuView mainMenu = new MainMenuView();
