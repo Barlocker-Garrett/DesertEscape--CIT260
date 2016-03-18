@@ -5,6 +5,8 @@
  */
 package citbyui.cit260.desertescape.view;
 
+import desertescape.exceptions.MainMenuException;
+
 /**
  *
  * @author doozi
@@ -21,8 +23,8 @@ public class HelpMenuView extends View {
     }
 
     @Override
-    public boolean doAction(String value) {
-        boolean valid = true;
+    public void doAction(String value) {
+        try {
         switch (value) {
             case "A":
                 aboutGame();
@@ -39,11 +41,10 @@ public class HelpMenuView extends View {
             case "B":
                 break;
             default:
-                valid = false;
-                System.out.println("Invalid option");
-                return valid;
+                throw new MainMenuException("Invaid option");
         }
-       return valid; 
+        } catch (MainMenuException me) {}
+        
     }
 
     private void aboutGame() {
