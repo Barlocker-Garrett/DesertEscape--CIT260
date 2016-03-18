@@ -11,13 +11,10 @@ package citbyui.cit260.desertescape.control;
  */
 public class FillPitControl {
 
-    public long FillPit(long shovelFull, long height, long width, long length) {
+    public static long FillPit(long shovelFull, long height, long width, long length) {
         double shovelSize = 0.8;
         long gallons;
         gallons = (long) Math.round(height * width * length * 0.133680555556);
-
-        if (shovelSize == 0.8) {
-        }
 
         long neededSand = (long) (Math.round(gallons / shovelSize));
 
