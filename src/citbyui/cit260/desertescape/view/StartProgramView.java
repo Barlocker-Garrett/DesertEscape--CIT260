@@ -14,7 +14,7 @@ import java.util.Scanner;
  *
  * @author Garrett
  */
-public class StartProgramView{
+public class StartProgramView {
 
     public StartProgramView() {
         startProgram();
@@ -29,12 +29,12 @@ public class StartProgramView{
 
         MainMenuView mainMenu = new MainMenuView();
         mainMenu.display();
-        
+
     }
 
     public void startProgram() {
 
-        String welcome = "";
+        String welcome;
         welcome = "========================"
                 + "\nWelcome to Desert Escape"
                 + "\nEnjoy the game."
@@ -43,8 +43,7 @@ public class StartProgramView{
         System.out.println(welcome);
     }
 
-
-    public String display(){
+    public String display() {
         boolean isValidName = false;
         String name = "";
         Scanner keyboard = new Scanner(System.in);
@@ -64,7 +63,7 @@ public class StartProgramView{
 
         return name;
     }
-        
+
     public boolean doAction(String playerName) {
         boolean valid = true;
         System.out.println("=============================");
