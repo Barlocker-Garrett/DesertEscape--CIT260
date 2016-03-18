@@ -7,6 +7,7 @@ package citbyui.cit260.desertescape.view;
 
 import citbyui.cit260.desertescape.control.ProgramController;
 import desertescape.DesertEscape;
+import desertescape.exceptions.MainMenuException;
 import desertescape.model.Player;
 import java.util.Scanner;
 
@@ -16,7 +17,7 @@ import java.util.Scanner;
  */
 public class StartProgramView {
 
-    public StartProgramView() {
+    public StartProgramView() throws MainMenuException {
         startProgram();
 
         String playerName = display();
