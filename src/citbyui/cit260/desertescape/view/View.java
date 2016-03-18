@@ -33,7 +33,7 @@ public abstract class View implements ViewInterface{
                 return; // exit the view
             
             // do the requested action and display the next view
-            done = this.doAction(value);
+            //done = this.doAction(value);
             
         } while (!done); // exit the view when done == true
     }
@@ -66,7 +66,6 @@ public abstract class View implements ViewInterface{
         boolean isValid = false;
 
         while (!isValid) {
-            System.out.println("Please select an option: ");
             try {
                 input = keyboard.nextDouble();
             } catch (NumberFormatException nf) {
