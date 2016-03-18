@@ -7,6 +7,7 @@ package citbyui.cit260.desertescape.view;
 
 import citbyui.cit260.desertescape.control.MovementController;
 import desertescape.DesertEscape;
+import desertescape.exceptions.MainMenuException;
 import desertescape.model.Location;
 
 /**
@@ -32,7 +33,7 @@ public class GameMenuView extends View {
     }
 
     @Override
-    public boolean doAction(String value) {
+    public void doAction(String value) {
 
         char charSel = value.toUpperCase().charAt(0);
 
@@ -57,25 +58,20 @@ public class GameMenuView extends View {
                 break;
             case 'N':
                 moveNorth();
-                return false;
             case 'E':
                 moveEast();
-                return false;
             case 'S':
                 moveSouth();
-                return false;
             case 'W':
                 moveWest();
-                return false;
             case 'C':
                 currentLocation();
                 break;
             case 'Q':
-                return true;
+                break;
             default:
                 System.out.println("Invalid option");
         }
-        return false;
     }
 
     public void viewMap() {
