@@ -58,5 +58,24 @@ public abstract class View implements ViewInterface{
 
         return input.toUpperCase();
     }
+        
+    @Override
+        public double getDouble() {
+        Scanner keyboard = new Scanner(System.in);
+        double input = 0.0;
+        boolean isValid = false;
+
+        while (!isValid) {
+            System.out.println("Please select an option: ");
+            try {
+                input = keyboard.nextDouble();
+            } catch (NumberFormatException nf) {
+                System.out.println("Invalid input - please enter a valid number" +
+                                    "Try again or enter Q to quit.");
+            }
+
+        }
+        return input;
+    }
    
 }
