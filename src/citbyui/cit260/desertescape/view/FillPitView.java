@@ -19,7 +19,7 @@ public class FillPitView extends View{
     }
     
     @Override
-    public boolean doAction(String value) {
+    public void doAction(String value) {
         long height;
         height = ((long) (1 + Math.random() * 100));
         long width;
@@ -35,7 +35,6 @@ public class FillPitView extends View{
                          "~0.13368");
         long shovelFull = (long) getDouble();
         FillPitControl.FillPit(shovelFull, height, width, length);
-    return true;
     }
     
     @Override
@@ -48,7 +47,6 @@ public class FillPitView extends View{
         Scanner keyboard = new Scanner(System.in);
         double input = 0.0;
 
-            System.out.println("Please select an option: ");
             try {
                 input = keyboard.nextDouble();
             } catch (NumberFormatException nf) {
