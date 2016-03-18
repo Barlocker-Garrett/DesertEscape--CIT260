@@ -7,6 +7,7 @@ package citbyui.cit260.desertescape.view;
 
 import citbyui.cit260.desertescape.control.ProgramController;
 import desertescape.DesertEscape;
+import desertescape.exceptions.MainMenuException;
 
 /**
  *
@@ -16,7 +17,7 @@ public class MainMenuView extends View{
 
     
 
-    public MainMenuView() {
+    public MainMenuView(){
         super("\n"
             + "\nN - Start new game"
             + "\nL - Load saved game"
@@ -26,8 +27,8 @@ public class MainMenuView extends View{
     }
 
     @Override
-    public boolean doAction(String value) {
-        boolean valid = true;
+    public void doAction(String value) {
+        try {
         switch (value) {
             case "N":
                 startNewGame();
@@ -42,13 +43,13 @@ public class MainMenuView extends View{
                 helpMenu();
                 break;
             case "Q":
-                valid = false;
                 break;
             default:
-                System.out.println("Invalid option");
-                valid = false;
+                throw new MainMenuException("Invaid input");
         }
-        return valid;
+        } catch (MainMenuException me) {
+        
+        }
     }
 
 
