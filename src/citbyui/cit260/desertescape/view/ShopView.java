@@ -5,6 +5,7 @@
  */
 package citbyui.cit260.desertescape.view;
 
+import desertescape.exceptions.MainMenuException;
 import java.util.Scanner;
 
 /**
@@ -13,13 +14,12 @@ import java.util.Scanner;
  */
 public class ShopView extends View {
 
-
     public ShopView() {
-    super("\n"
-            + "\nBuy - Buy Items"
-            + "\nSell - Sell Items"
-            + "\nView - View Inventory"
-            + "\nQ - Quit to main");
+        super("\n"
+                + "\nBuy - Buy Items"
+                + "\nSell - Sell Items"
+                + "\nView - View Inventory"
+                + "\nQ - Quit to main");
 
     }
 
@@ -29,26 +29,25 @@ public class ShopView extends View {
      * @return
      */
     @Override
-    public boolean doAction(String selection) {
-        boolean valid = true;
-        switch (selection) {
-            case "Buy":
-                buyItems();
-                break;
-            case "Sell":
-                sellItems();
-                break;
-            case "View":
-                viewInventory();
-                break;
-            case "Q":
-                break;
-            default:
-                System.out.println("Invalid option");
-                valid = false;
-                return valid;
+    public void doAction(String selection) {
+        try {
+            switch (selection) {
+                case "Buy":
+                    buyItems();
+                    break;
+                case "Sell":
+                    sellItems();
+                    break;
+                case "View":
+                    viewInventory();
+                    break;
+                case "Q":
+                    break;
+                default:
+                    throw new MainMenuException("Invaid output");
+            }
+        } catch (MainMenuException me) {
         }
-        return valid;
     }
 
     @Override
@@ -75,20 +74,21 @@ public class ShopView extends View {
     private void buyItems() {
         SellMenuView SellMenu = new SellMenuView() {
             @Override
-            public boolean doAction(String value) {
+            public void doAction(String value) {
                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
         };
-        sellMenu.displayMenu();    }
+    }
 
     private void sellItems() {
         BuyMenuView BuyMenu = new BuyMenuView() {
             @Override
-            public boolean doAction(String value) {
+            public void doAction(String value) {
                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
         };
-        buyMenu.displayMenu();     }
+        buyMenu.displayMenu();
+    }
 
     private void viewInventory() {
         String numItem0 = null;
@@ -102,4 +102,5 @@ public class ShopView extends View {
         String numItem4 = null;
         System.out.println("You have :" + numItem4);
     }
+
 }
