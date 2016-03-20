@@ -15,8 +15,6 @@ import desertescape.exceptions.MainMenuException;
  */
 public class MainMenuView extends View{
 
-    
-
     public MainMenuView(){
         super("\n"
             + "\nN - Start new game"
