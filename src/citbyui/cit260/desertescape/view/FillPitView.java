@@ -19,22 +19,23 @@ public class FillPitView extends View{
     }
     
     @Override
-    public void doAction(String value) {
+    public boolean doAction(String value) {
         long height;
         height = ((long) (1 + Math.random() * 100));
         long width;
         width = ((long) (1 + Math.random() * 100));
         long length;
         length = ((long) (1 + Math.random() * 100));
-        System.out.println("Which is " + height + " feet deep"
+        console.println("Which is " + height + " feet deep"
                            + "\n" + width + " feet wide and"
                            + "\n" + length + " feet long");
-        System.out.println("With a shovel that can scoop 0.8 gallons" +
+        console.println("With a shovel that can scoop 0.8 gallons" +
                          "\nHow many scoops will it take to fill the pit?" +
                          "\nHint: Constant to convert cubic feet to gallons is:" +
                          "~0.13368");
         long shovelFull = (long) getDouble();
         FillPitControl.FillPit(shovelFull, height, width, length);
+        return true;
     }
     
     @Override
@@ -50,7 +51,7 @@ public class FillPitView extends View{
             try {
                 input = keyboard.nextDouble();
             } catch (NumberFormatException nf) {
-                System.out.println("Invalid input - please enter a valid number" +
+                console.println("Invalid input - please enter a valid number" +
                                     "Try again or enter Q to quit.");
         }
         return input;
