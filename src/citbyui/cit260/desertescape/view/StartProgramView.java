@@ -10,7 +10,6 @@ import desertescape.DesertEscape;
 import desertescape.model.Player;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
-import java.util.Scanner;
 
 /**
  *
@@ -54,12 +53,16 @@ public class StartProgramView {
     public String display() {
         boolean isValidName = false;
         String name = "";
-        Scanner keyboard = new Scanner(System.in);
 
         console.println("Please enter your name: ");
 
         while (!isValidName) {
-            String input = keyboard.nextLine();
+            String input = "";
+            try {
+                input = keyboard.readLine();
+            } catch (Exception e) {
+                ErrorView.display(this.getClass().getName(), "Error on input");
+            }
 
             if (input == null || input.length() >= 2) {
                 isValidName = true;
