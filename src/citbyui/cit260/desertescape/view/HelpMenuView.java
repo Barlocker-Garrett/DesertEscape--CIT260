@@ -5,8 +5,6 @@
  */
 package citbyui.cit260.desertescape.view;
 
-import desertescape.exceptions.MainMenuException;
-
 /**
  *
  * @author doozi
