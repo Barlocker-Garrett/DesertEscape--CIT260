@@ -11,7 +11,7 @@ package citbyui.cit260.desertescape.view;
  */
 public interface ViewInterface {
     public void display();
-    public void doAction(String value);
+    public boolean doAction(String value);
     public String getInput();
     public double getDouble();
     
