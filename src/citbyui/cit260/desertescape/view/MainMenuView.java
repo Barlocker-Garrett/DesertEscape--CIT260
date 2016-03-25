@@ -7,7 +7,6 @@ package citbyui.cit260.desertescape.view;
 
 import citbyui.cit260.desertescape.control.ProgramController;
 import desertescape.DesertEscape;
-import desertescape.exceptions.MainMenuException;
 
 /**
  *
@@ -25,31 +24,28 @@ public class MainMenuView extends View{
     }
 
     @Override
-    public void doAction(String value) {
-        try {
-        switch (value) {
-            case "N":
-                startNewGame();
-                break;
-            case "L":
-                loadSavedGame();
-                break;
-            case "S":
-                saveCurrentGame();
-                break;
-            case "H":
-                helpMenu();
-                break;
-            case "Q":
-                break;
-            default:
-                throw new MainMenuException("Invaid input");
-        }
-        } catch (MainMenuException me) {
-        
-        }
+    public boolean doAction(String value) {
+    switch (value) {
+        case "N":
+            startNewGame();
+            break;
+        case "L":
+            loadSavedGame();
+            break;
+        case "S":
+            saveCurrentGame();
+            break;
+        case "H":
+            helpMenu();
+            break;
+        case "Q":
+            return true;
+        default:
+            console.println("Invalid option");
+            break;
     }
-
+    return false;
+}
 
     private void startNewGame() {
         ProgramController.createNewGame(DesertEscape.getPlayer());
@@ -58,11 +54,25 @@ public class MainMenuView extends View{
     }
 
     private void loadSavedGame() {
-        System.out.println("CALLED lOAD SAVED GAME - NOT IMPLEMENTED YET");
+        console.println("Enter file name: ");
+        try {
+            String fileName = keyboard.readLine();
+            ProgramController.loadGame(fileName);
+            GameMenuView gmv = new GameMenuView();
+            gmv.display();
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(), "Error on input");
+        }
     }
 
     private void saveCurrentGame() {
-        System.out.println("CALLED SAVE CURRENT GAME - NOT IMPLEMENTED YET");
+        console.println("Enter file name: ");
+        try {
+            String fileName = keyboard.readLine();
+            ProgramController.saveGame(fileName);
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(), "Error on input");
+        }
     }
 
     private void helpMenu() {
