@@ -5,13 +5,19 @@
  */
 package citbyui.cit260.desertescape.control;
 
+import desertescape.DesertEscape;
 import desertescape.exceptions.FillPitException;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 
 /**
  *
  * @author Garrett
  */
 public class FillPitControl {
+    
+    protected final PrintWriter console = DesertEscape.getOutFile();
+    protected final BufferedReader keyboard = DesertEscape.getInFile();
 
     public static void FillPit(long shovelFull, long height, long width, long length) {
         double shovelSize = 0.8;
