@@ -5,45 +5,35 @@
  */
 package citbyui.cit260.desertescape.control;
 
-import desertescape.DesertEscape;
 import desertescape.exceptions.FillPitException;
-import java.io.BufferedReader;
-import java.io.PrintWriter;
 
 /**
  *
  * @author Garrett
  */
 public class FillPitControl {
-    
-    protected final PrintWriter console = DesertEscape.getOutFile();
-    protected final BufferedReader keyboard = DesertEscape.getInFile();
 
-    public static void FillPit(long shovelFull, long height, long width, long length) {
+    public static void FillPit(long shovelFull, long height, long width, long length) throws FillPitException {
         double shovelSize = 0.8;
         long gallons;
         gallons = (long) Math.round(height * width * length * 0.133680555556);
 
         long neededSand = (long) (Math.round(gallons / shovelSize));
-        try {
-            if (shovelFull < 0) {
-                throw new FillPitException("Must be possitive number");
-            }
-            if (shovelFull == 0) {
-                throw new FillPitException("Must be more than 0");
-            }
-            if (neededSand > shovelFull) {
-                throw new FillPitException("You needed more sand");
-            }
-            if (neededSand < shovelFull) {
-                throw new FillPitException("You overfilled the pit");
-            }
-        } catch (FillPitException fp) {
-            System.out.println(fp.getMessage());
+        if (shovelFull < 0) {
+            throw new FillPitException("Must be possitive number");
         }
-        
+        if (shovelFull == 0) {
+            throw new FillPitException("Must be more than 0");
+        }
+        if (neededSand > shovelFull) {
+            throw new FillPitException("You needed more sand");
+        }
+        if (neededSand < shovelFull) {
+            throw new FillPitException("You overfilled the pit");
+        }
+
         if (neededSand == shovelFull) {
-                System.out.println("Correct, you filled the pit");
-            }
+            System.out.println("Correct, you filled the pit");
+        }
     }
 }
