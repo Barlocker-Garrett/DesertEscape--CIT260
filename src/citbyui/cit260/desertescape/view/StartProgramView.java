@@ -7,8 +7,9 @@ package citbyui.cit260.desertescape.view;
 
 import citbyui.cit260.desertescape.control.ProgramController;
 import desertescape.DesertEscape;
-import desertescape.exceptions.MainMenuException;
 import desertescape.model.Player;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -16,9 +17,15 @@ import java.util.Scanner;
  * @author Garrett
  */
 public class StartProgramView {
+    
+    protected final PrintWriter console = DesertEscape.getOutFile();
+    protected final BufferedReader keyboard = DesertEscape.getInFile();
+    
+    private static BufferedReader inFile;
+    private static PrintWriter outFile;
 
-    public StartProgramView() throws MainMenuException {
-        startProgram();
+    public void startProgram(){
+        displayBanner();
 
         String playerName = display();
 
@@ -33,7 +40,7 @@ public class StartProgramView {
 
     }
 
-    public void startProgram() {
+    public void displayBanner() {
 
         String welcome;
         welcome = "========================"
@@ -41,7 +48,7 @@ public class StartProgramView {
                 + "\nEnjoy the game."
                 + "\n========================";
 
-        System.out.println(welcome);
+        console.println(welcome);
     }
 
     public String display() {
@@ -49,7 +56,7 @@ public class StartProgramView {
         String name = "";
         Scanner keyboard = new Scanner(System.in);
 
-        System.out.println("Please enter your name: ");
+        console.println("Please enter your name: ");
 
         while (!isValidName) {
             String input = keyboard.nextLine();
@@ -58,7 +65,7 @@ public class StartProgramView {
                 isValidName = true;
                 name = input;
             } else {
-                System.out.println("Input is invalid - name must be at least 2 characters");
+                console.println("Input is invalid - name must be at least 2 characters");
             }
         }
 
@@ -67,10 +74,10 @@ public class StartProgramView {
 
     public boolean doAction(String playerName) {
         boolean valid = true;
-        System.out.println("=============================");
-        System.out.println("Welcome " + playerName + ".");
-        System.out.println("Hope you have fun!");
-        System.out.println("=============================");
+        console.println("=============================");
+        console.println("Welcome " + playerName + ".");
+        console.println("Hope you have fun!");
+        console.println("=============================");
         return valid;
 
     }
