@@ -60,7 +60,7 @@ public abstract class SellMenuView extends View {
                 sellItem0();
                 break;
             default:
-                System.out.println("Invalid option");
+                console.println("Invalid option");
                 break;
         }
                 //add item names to inventory   
@@ -72,38 +72,38 @@ public abstract class SellMenuView extends View {
     }
 
     private void sellItem2() {
-        System.out.println("This is where you can sell an item.");
+        console.println("This is where you can sell an item.");
     }
 
     private void sellItem3() {
-        System.out.println("This is where you can sell an item.");
+        console.println("This is where you can sell an item.");
     }
 
     private void sellItem4() {
-        System.out.println("This is where you can sell an item.");
+        console.println("This is where you can sell an item.");
     }
 
     private void sellItem5() {
-        System.out.println("This is where you can sell an item.");
+        console.println("This is where you can sell an item.");
     }
 
     private void sellItem6() {
-        System.out.println("This is where you can sell an item.");
+        console.println("This is where you can sell an item.");
     }
 
     private void sellItem7() {
-        System.out.println("This is where you can sell an item.");
+        console.println("This is where you can sell an item.");
     }
 
     private void sellItem8() {
-        System.out.println("This is where you can sell an item.");
+        console.println("This is where you can sell an item.");
     }
 
     private void sellItem9() {
-        System.out.println("This is where you can sell an item.");
+        console.println("This is where you can sell an item.");
     }
 
     private void sellItem0() {
-        System.out.println("This is where you can sell an item.");
+        console.println("This is where you can sell an item.");
     }
 }
