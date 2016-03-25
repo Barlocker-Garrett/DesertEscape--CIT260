@@ -5,12 +5,18 @@
  */
 package citbyui.cit260.desertescape.control;
 
+import desertescape.DesertEscape;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
+
 /**
  *
  * @author doozi
  */
 public class CutDownTreeControl {
 
+    protected final PrintWriter console = DesertEscape.getOutFile();
+    protected final BufferedReader keyboard = DesertEscape.getInFile();
     /**
      *
      * @param args
@@ -38,24 +44,24 @@ public class CutDownTreeControl {
      * @return
      */
     public double CutDownTree(double paces, double angle, double crevasse) {
-        System.out.println("Please take some steps");
+        console.println("Please take some steps");
         //return 0;
 
         double treeHeight = 0.0;
 
         if (paces >= 300) {
-            System.out.println("You will be too far for a good reading");
+            console.println("You will be too far for a good reading");
         }
 
         if (angle > 90) {
-            System.out.println("Please get a little further away from the tree");
+            console.println("Please get a little further away from the tree");
         }
         if (angle < 1) {
-            System.out.println("The angle must be between 1 and 90");
+            console.println("The angle must be between 1 and 90");
         }
 
         if (treeHeight >= 35) {
-            System.out.println("Nicely done, go ahead and cross the crevasse");
+            console.println("Nicely done, go ahead and cross the crevasse");
             return 1;
         }
 
