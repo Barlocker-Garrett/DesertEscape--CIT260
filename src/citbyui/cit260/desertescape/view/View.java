@@ -5,6 +5,9 @@
  */
 package citbyui.cit260.desertescape.view;
 
+import desertescape.DesertEscape;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -14,6 +17,8 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface{
     
     protected String displayMessage;
+    protected final PrintWriter console = DesertEscape.getOutFile();
+    protected final BufferedReader keyboard = DesertEscape.getInFile();
     
     public View() {
     }
@@ -24,7 +29,7 @@ public abstract class View implements ViewInterface{
     
     @Override
     public void display(){
-        System.out.println(this.displayMessage);
+        console.println(this.displayMessage);
         boolean done = false;
         do {
             // prompt for and get players name
@@ -40,17 +45,20 @@ public abstract class View implements ViewInterface{
     
     @Override
         public String getInput() {
-        Scanner keyboard = new Scanner(System.in);
         String input = null;
         boolean isValid = false;
 
         while (!isValid) {
-            System.out.println("Please select an option: ");
-            input = keyboard.nextLine();
+            console.println("Please select an option: ");
+            try {
+                input = keyboard.readLine();
+            } catch (Exception e) {
+                throw new RuntimeException("Error reading input");
+            }
             input = input.trim();
 
             if (input == null || input.length() == 0) {
-                System.out.println("Invalid input - please enter a valid character");
+                console.println("Invalid input - please enter a valid character");
             } else {
                 isValid = true;
             }
@@ -69,7 +77,7 @@ public abstract class View implements ViewInterface{
             try {
                 input = keyboard.nextDouble();
             } catch (NumberFormatException nf) {
-                System.out.println("Invalid input - please enter a valid number" +
+                console.println("Invalid input - please enter a valid number" +
                                     "Try again or enter Q to quit.");
             }
 
