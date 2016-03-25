@@ -5,8 +5,6 @@
  */
 package citbyui.cit260.desertescape.view;
 
-import java.util.Scanner;
-
 /**
  *
  * @author doozi
