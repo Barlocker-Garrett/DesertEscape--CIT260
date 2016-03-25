@@ -48,19 +48,22 @@ public abstract class View implements ViewInterface {
 
     @Override
     public String getInput() {
-        Scanner keyboard = new Scanner(System.in);
         String input = null;
         boolean isValid = false;
 
-        System.out.println(this.displayMessage);
+        console.println(this.displayMessage);
 
         while (!isValid) {
-            System.out.println("Please select an option: ");
-            input = keyboard.nextLine();
+            console.println("Please select an option: ");
+            try {
+                input = keyboard.readLine();
+            } catch (Exception e) {
+                ErrorView.display(this.getClass().getName(), "Error on input");
+            }
             input = input.trim();
 
             if (input == null || input.length() == 0) {
-                System.out.println("Invalid input - please enter a valid character");
+                console.println("Invalid input - please enter a valid character");
             } else {
                 isValid = true;
             }
