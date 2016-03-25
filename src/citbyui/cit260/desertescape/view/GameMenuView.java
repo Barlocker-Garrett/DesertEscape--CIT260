@@ -7,7 +7,6 @@ package citbyui.cit260.desertescape.view;
 
 import citbyui.cit260.desertescape.control.MovementController;
 import desertescape.DesertEscape;
-import desertescape.exceptions.MainMenuException;
 import desertescape.model.Location;
 
 /**
@@ -33,13 +32,13 @@ public class GameMenuView extends View {
     }
 
     @Override
-    public void doAction(String value) {
+    public boolean doAction(String value) {
 
         char charSel = value.toUpperCase().charAt(0);
 
         switch (charSel) {
             case 'I':
-                System.out.println("NEED TO IMPLEMENT ITEMS AND COLLECTION CONTROLLER");
+                console.println("NEED TO IMPLEMENT ITEMS AND COLLECTION CONTROLLER");
                 break;
             case 'F':
                 FillPitView fillPit = new FillPitView();
@@ -68,15 +67,16 @@ public class GameMenuView extends View {
                 currentLocation();
                 break;
             case 'Q':
-                break;
+                return true;
             default:
-                System.out.println("Invalid option");
+                console.println("Invalid option");
         }
+        return false;
     }
 
     public void viewMap() {
         String map = DesertEscape.getGame().getMap().getMapString();
-        System.out.println(map);
+        console.println(map);
     }
 
     private void moveNorth() {
@@ -105,7 +105,7 @@ public class GameMenuView extends View {
 
     private void currentLocation() {
         Location l = DesertEscape.getGame().getPlayer().getLocation();
-        System.out.println("You are at: (" + l.getRow() + ", " + l.getCol() + ")");
+        console.println("You are at: (" + l.getRow() + ", " + l.getCol() + ")");
     }
 
 }
