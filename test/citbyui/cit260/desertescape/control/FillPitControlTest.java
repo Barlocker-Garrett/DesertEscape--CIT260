@@ -23,7 +23,7 @@ public class FillPitControlTest {
      */
     @Test
     public void testFillPit() {
-        System.out.println("FillPit");
+        console.println("FillPit");
         long shovelFull = 21;
         long height = 5;
         long width = 5;

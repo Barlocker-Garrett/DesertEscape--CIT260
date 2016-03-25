@@ -14,19 +14,19 @@ import java.util.Scanner;
  *
  * @author Garrett
  */
-public abstract class View implements ViewInterface{
-    
+public abstract class View implements ViewInterface {
+
     protected String displayMessage;
     protected final PrintWriter console = DesertEscape.getOutFile();
     protected final BufferedReader keyboard = DesertEscape.getInFile();
     
     public View() {
     }
-    
-    public View(String message){
+
+    public View(String message) {
         this.displayMessage = message;
     }
-    
+
     @Override
     public void display(){
         console.println(this.displayMessage);
@@ -34,19 +34,25 @@ public abstract class View implements ViewInterface{
         do {
             // prompt for and get players name
             String value = this.getInput();
+
+            doAction(value);
+
             if (value.toUpperCase().equals("Q")) // user wants to quit
+            {
                 return; // exit the view
-            
+            }
             // do the requested action and display the next view
             //done = this.doAction(value);
-            
+
         } while (!done); // exit the view when done == true
     }
-    
+
     @Override
         public String getInput() {
         String input = null;
         boolean isValid = false;
+
+        System.out.println(this.displayMessage);
 
         while (!isValid) {
             console.println("Please select an option: ");
@@ -66,9 +72,9 @@ public abstract class View implements ViewInterface{
 
         return input.toUpperCase();
     }
-        
+
     @Override
-        public double getDouble() {
+    public double getDouble() {
         Scanner keyboard = new Scanner(System.in);
         double input = 0.0;
         boolean isValid = false;
@@ -84,5 +90,5 @@ public abstract class View implements ViewInterface{
         }
         return input;
     }
-   
+
 }

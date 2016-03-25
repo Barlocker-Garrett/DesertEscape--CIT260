@@ -25,7 +25,7 @@ public class CutDownTreeControlTest {
      */
     @Test
     public void testCutDownTree() {
-        System.out.println("CutDownTree");
+        console.println("CutDownTree");
         int paces = 0;
         int angle = 0;
         double treeHeight = 0.0;

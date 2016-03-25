@@ -22,7 +22,7 @@ public class BuildTimeMachineControlTest {
      */
     @Test
     public void testBuildTimeMachine() {
-        System.out.println("BuildTimeMachine");
+        console.println("BuildTimeMachine");
         long weight = 150;
         long feet = 4;
         long inch = 2;
