@@ -63,49 +63,49 @@ public abstract class BuyMenuView extends View {
                 buyItem0();
                 break;
             default:
-                System.out.println("Invalid option");
+                console.println("Invalid option");
                 return buyItem;
         }
         return buyItem;  //need to add item names to inventory
     }
 
     private void buyItem1() {
-        System.out.println("This is where you can buy an item.");
+        console.println("This is where you can buy an item.");
     }
 
     private void buyItem2() {
-        System.out.println("This is where you can buy an item.");
+        console.println("This is where you can buy an item.");
     }
 
     private void buyItem3() {
-        System.out.println("This is where you can buy an item.");
+        console.println("This is where you can buy an item.");
     }
 
     private void buyItem4() {
-        System.out.println("This is where you can buy an item.");
+        console.println("This is where you can buy an item.");
     }
 
     private void buyItem5() {
-        System.out.println("This is where you can buy an item.");
+        console.println("This is where you can buy an item.");
     }
 
     private void buyItem6() {
-        System.out.println("This is where you can buy an item.");
+        console.println("This is where you can buy an item.");
     }
 
     private void buyItem7() {
-        System.out.println("This is where you can buy an item.");
+        console.println("This is where you can buy an item.");
     }
 
     private void buyItem8() {
-        System.out.println("This is where you can buy an item.");
+        console.println("This is where you can buy an item.");
     }
 
     private void buyItem9() {
-        System.out.println("This is where you can buy an item.");
+        console.println("This is where you can buy an item.");
     }
 
     private void buyItem0() {
-        System.out.println("This is where you can buy an item.");
+        console.println("This is where you can buy an item.");
     }
 }
