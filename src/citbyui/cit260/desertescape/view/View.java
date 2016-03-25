@@ -19,7 +19,7 @@ public abstract class View implements ViewInterface {
     protected String displayMessage;
     protected final PrintWriter console = DesertEscape.getOutFile();
     protected final BufferedReader keyboard = DesertEscape.getInFile();
-    
+
     public View() {
     }
 
@@ -28,8 +28,7 @@ public abstract class View implements ViewInterface {
     }
 
     @Override
-    public void display(){
-        console.println(this.displayMessage);
+    public void display() {
         boolean done = false;
         do {
             // prompt for and get players name
@@ -48,23 +47,20 @@ public abstract class View implements ViewInterface {
     }
 
     @Override
-        public String getInput() {
+    public String getInput() {
+        Scanner keyboard = new Scanner(System.in);
         String input = null;
         boolean isValid = false;
 
         System.out.println(this.displayMessage);
 
         while (!isValid) {
-            console.println("Please select an option: ");
-            try {
-                input = keyboard.readLine();
-            } catch (Exception e) {
-                throw new RuntimeException("Error reading input");
-            }
+            System.out.println("Please select an option: ");
+            input = keyboard.nextLine();
             input = input.trim();
 
             if (input == null || input.length() == 0) {
-                console.println("Invalid input - please enter a valid character");
+                System.out.println("Invalid input - please enter a valid character");
             } else {
                 isValid = true;
             }
@@ -83,8 +79,8 @@ public abstract class View implements ViewInterface {
             try {
                 input = keyboard.nextDouble();
             } catch (NumberFormatException nf) {
-                console.println("Invalid input - please enter a valid number" +
-                                    "Try again or enter Q to quit.");
+                System.out.println("Invalid input - please enter a valid number"
+                        + "Try again or enter Q to quit.");
             }
 
         }
