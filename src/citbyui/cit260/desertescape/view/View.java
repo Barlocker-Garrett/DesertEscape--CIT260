@@ -11,38 +11,43 @@ import java.util.Scanner;
  *
  * @author Garrett
  */
-public abstract class View implements ViewInterface{
-    
+public abstract class View implements ViewInterface {
+
     protected String displayMessage;
-    
+
     public View() {
     }
-    
-    public View(String message){
+
+    public View(String message) {
         this.displayMessage = message;
     }
-    
+
     @Override
-    public void display(){
-        System.out.println(this.displayMessage);
+    public void display() {
         boolean done = false;
         do {
             // prompt for and get players name
             String value = this.getInput();
+
+            doAction(value);
+
             if (value.toUpperCase().equals("Q")) // user wants to quit
+            {
                 return; // exit the view
-            
+            }
             // do the requested action and display the next view
             //done = this.doAction(value);
-            
+
         } while (!done); // exit the view when done == true
     }
-    
+
     @Override
-        public String getInput() {
+    public String getInput() {
         Scanner keyboard = new Scanner(System.in);
         String input = null;
         boolean isValid = false;
+
+        System.out.println(this.displayMessage);
 
         while (!isValid) {
             System.out.println("Please select an option: ");
@@ -58,9 +63,9 @@ public abstract class View implements ViewInterface{
 
         return input.toUpperCase();
     }
-        
+
     @Override
-        public double getDouble() {
+    public double getDouble() {
         Scanner keyboard = new Scanner(System.in);
         double input = 0.0;
         boolean isValid = false;
@@ -69,12 +74,12 @@ public abstract class View implements ViewInterface{
             try {
                 input = keyboard.nextDouble();
             } catch (NumberFormatException nf) {
-                System.out.println("Invalid input - please enter a valid number" +
-                                    "Try again or enter Q to quit.");
+                System.out.println("Invalid input - please enter a valid number"
+                        + "Try again or enter Q to quit.");
             }
 
         }
         return input;
     }
-   
+
 }
