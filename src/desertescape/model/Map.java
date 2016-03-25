@@ -5,6 +5,9 @@
  */
 package desertescape.model;
 
+import desertescape.DesertEscape;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.io.Serializable;
 
 /**
@@ -12,6 +15,9 @@ import java.io.Serializable;
  * @author Garrett
  */
 public class Map implements Serializable {
+    
+    protected final PrintWriter console = DesertEscape.getOutFile();
+    protected final BufferedReader keyboard = DesertEscape.getInFile();
     
     //class instance variables
     public static final int NUM_ROWS = 5;
@@ -22,7 +28,7 @@ public class Map implements Serializable {
     public Map() {
         matrix = new Location[NUM_ROWS][NUM_COLS];
         init();
-        System.out.println(LocationType.values().length);
+        console.println(LocationType.values().length);
     }
     
     public void init() {
