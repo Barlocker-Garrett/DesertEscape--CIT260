@@ -5,9 +5,6 @@
  */
 package citbyui.cit260.desertescape.view;
 
-import desertescape.exceptions.MainMenuException;
-import java.util.Scanner;
-
 /**
  *
  * @author doozi
@@ -51,19 +48,22 @@ public class ShopView extends View {
 
     @Override
     public String getInput() {
-        Scanner keyboard = new Scanner(System.in);
         String input = null;
         boolean isValid = false;
 
         while (!isValid) {
-            console.println("Please select an option: ");
-            input = keyboard.nextLine();
-            input = input.trim();
-
-            if (input == null || input.length() == 0) {
-                console.println("Invalid input - please enter a valid character");
-            } else {
-                isValid = true;
+            try {
+                console.println("Please select an option: ");
+                input = keyboard.readLine();
+                input = input.trim();
+                
+                if (input == null || input.length() == 0) {
+                    console.println("Invalid input - please enter a valid character");
+                } else {
+                    isValid = true;
+                }
+            } catch (Exception e) {
+                ErrorView.display(this.getClass().getName(), "Error on input");
             }
         }
 
