@@ -29,26 +29,25 @@ public class ShopView extends View {
      * @return
      */
     @Override
-    public void doAction(String selection) {
-        try {
-            switch (selection) {
-                case "Buy":
-                    buyItems();
-                    break;
-                case "Sell":
-                    sellItems();
-                    break;
-                case "View":
-                    viewInventory();
-                    break;
-                case "Q":
-                    break;
+    public boolean doAction(String selection) {
+        switch (selection) {
+            case "Buy":
+                buyItems();
+                break;
+            case "Sell":
+                sellItems();
+                break;
+            case "View":
+                viewInventory();
+                break;
+            case "Q":
+                return true;
                 default:
-                    throw new MainMenuException("Invaid output");
-            }
-        } catch (MainMenuException me) {
+                console.println("Invalid option");
+                break;
         }
-    }
+        return false;
+}
 
     @Override
     public String getInput() {
@@ -57,12 +56,12 @@ public class ShopView extends View {
         boolean isValid = false;
 
         while (!isValid) {
-            System.out.println("Please select an option: ");
+            console.println("Please select an option: ");
             input = keyboard.nextLine();
             input = input.trim();
 
             if (input == null || input.length() == 0) {
-                System.out.println("Invalid input - please enter a valid character");
+                console.println("Invalid input - please enter a valid character");
             } else {
                 isValid = true;
             }
@@ -74,7 +73,7 @@ public class ShopView extends View {
     private void buyItems() {
         SellMenuView SellMenu = new SellMenuView() {
             @Override
-            public void doAction(String value) {
+            public boolean doAction(String value) {
                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
         };
@@ -83,7 +82,7 @@ public class ShopView extends View {
     private void sellItems() {
         BuyMenuView BuyMenu = new BuyMenuView() {
             @Override
-            public void doAction(String value) {
+            public boolean doAction(String value) {
                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
         };
@@ -92,15 +91,15 @@ public class ShopView extends View {
 
     private void viewInventory() {
         String numItem0 = null;
-        System.out.println("You have :" + numItem0);
+        console.println("You have :" + numItem0);
         String numItem1 = null;
-        System.out.println("You have :" + numItem1);
+        console.println("You have :" + numItem1);
         String numItem2 = null;
-        System.out.println("You have :" + numItem2);
+        console.println("You have :" + numItem2);
         String numItem3 = null;
-        System.out.println("You have :" + numItem3);
+        console.println("You have :" + numItem3);
         String numItem4 = null;
-        System.out.println("You have :" + numItem4);
+        console.println("You have :" + numItem4);
     }
 
 }
