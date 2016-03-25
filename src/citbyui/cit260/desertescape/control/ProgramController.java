@@ -5,11 +5,16 @@
  */
 package citbyui.cit260.desertescape.control;
 
+import citbyui.cit260.desertescape.view.ErrorView;
 import desertescape.DesertEscape;
 import desertescape.model.Game;
 import desertescape.model.Item;
 import desertescape.model.Map;
 import desertescape.model.Player;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -100,6 +105,33 @@ public class ProgramController {
 
         return itemList;
         
+    }
+
+    public static void saveGame(String filePath) {
+        try {
+            FileOutputStream fos = new FileOutputStream(filePath);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            
+            oos.writeObject(DesertEscape.getGame());
+        } catch (Exception e) {
+            ErrorView.display("ProgramController", e.getMessage());
+        }
+    }
+
+    public static void loadGame(String filePath) {
+        Game game = null;
+        try {
+            FileInputStream fis = new FileInputStream(filePath);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            
+            game = (Game)ois.readObject();
+            
+            DesertEscape.setGame(game);
+            DesertEscape.setPlayer(game.getPlayer());
+            
+        } catch (Exception e) {
+            ErrorView.display("ProgramController", e.getMessage());
+        }
     }
     
 }
