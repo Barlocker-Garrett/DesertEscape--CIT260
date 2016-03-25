@@ -23,43 +23,44 @@ public class HelpMenuView extends View {
     }
 
     @Override
-    public void doAction(String value) {
-        try {
-        switch (value) {
-            case "A":
-                aboutGame();
-                break;
-            case "H":
-                howToPlay();
-                break;
-            case "M":
-                movementHelp();
-                break;
-            case "O":
-                objective();
-                break;
-            case "B":
-                break;
-            default:
-                throw new MainMenuException("Invaid option");
+    public boolean doAction(String value) {
+
+    switch (value) {
+        case "A":
+            aboutGame();
+            break;
+        case "H":
+            howToPlay();
+            break;
+        case "M":
+            movementHelp();
+            break;
+        case "O":
+            objective();
+            break;
+        case "B":
+            return true;
+        default:
+            console.println("Invalid option");
+            break;
         }
-        } catch (MainMenuException me) {}
-        
-    }
+        return false;
+}
+
 
     private void aboutGame() {
-        System.out.println("You're stuck in a desert and you can escape by building time machine for some reason.");
+        console.println("You're stuck in a desert and you can escape by building time machine for some reason.");
     }
 
     private void howToPlay() {
-        System.out.println("Move from location to location inspecting for items. Run if you think you'll be captured.");
+        console.println("Move from location to location inspecting for items. Run if you think you'll be captured.");
     }
 
     private void movementHelp() {
-        System.out.println("Run - You randomly run to another area. \nShop - Go to shop to buy items");
+        console.println("Run - You randomly run to another area. \nShop - Go to shop to buy items");
     }
 
     private void objective() {
-        System.out.println("Don't die, build a time machine and live!");
+        console.println("Don't die, build a time machine and live!");
     }
 }
