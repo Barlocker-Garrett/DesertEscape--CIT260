@@ -7,8 +7,10 @@ package desertescape;
 
 import citbyui.cit260.desertescape.view.StartProgramView;
 import desertescape.model.Game;
-import desertescape.model.Item;
 import desertescape.model.Player;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 
 /**
  *
@@ -19,20 +21,39 @@ public class DesertEscape {
     private static Player player;
     private static Game game;
     
+    private static BufferedReader inFile;
+    private static PrintWriter outFile;
+    
+    private static PrintWriter logFile;
+    
     /**
      * @param args the command line arguments
      */
-    @SuppressWarnings("CallToPrintStackTrace")
     public static void main(String[] args) {
         
-        StartProgramView startProgram = new StartProgramView();
+        StartProgramView startProgram = null;
         try {
-            // create StartProgram and Start the program
+            inFile = new BufferedReader(new InputStreamReader(System.in));
+            outFile = new PrintWriter(System.out, true);
+            String logPath = "log.txt";
+            logFile = new PrintWriter(logPath);
+     
+            startProgram = new StartProgramView();
             startProgram.startProgram();
-        } catch (Throwable te) {
-            System.out.println(te.getMessage());
-            te.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             startProgram.startProgram();
+        } finally {
+            try{
+                if (inFile != null) {
+                    inFile.close();
+                }
+                if (outFile != null) {
+                    outFile.close();
+                }
+            } catch (Exception ex) {
+                System.out.println("Error closing files");
+            }
         }
         
     }
@@ -51,6 +72,30 @@ public class DesertEscape {
 
     public static void setGame(Game game) {
         DesertEscape.game = game;
+    }
+    
+    public static PrintWriter getOutFile() {
+        return outFile;
+    }
+
+    public static void setOutfile(PrintWriter outFile) {
+        DesertEscape.outFile = outFile;
+    }
+
+    public static BufferedReader getInFile() {
+        return inFile;
+    }
+
+    public static void setInFile(BufferedReader inFile) {
+        DesertEscape.inFile = inFile;
+    }
+
+    public static PrintWriter getLogFile() {
+        return logFile;
+    }
+
+    public static void setLogFile(PrintWriter logFile) {
+        DesertEscape.logFile = logFile;
     }
     
     
