@@ -60,6 +60,34 @@ public class Map implements Serializable {
         return rtn;
     }
     
+    public String getMapReport() {
+        String rtn = "";
+        rtn += "         Map\n";
+        rtn += "---------------------\n";
+        rtn += "   0    1   2   3   4\n";
+        for (int row = 0; row < NUM_ROWS; row++){
+            rtn += row + "  ";
+            for (int col = 0; col < NUM_COLS; col++){
+                rtn += matrix[row][col].getType().name().charAt(0);
+                rtn += "\t";
+            }
+            rtn += "\n";
+        }
+        rtn += "---------------------\n\n";
+        
+        rtn += "         Key\n";
+        rtn += "---------------------\n";
+        rtn += "  D - Desert\n";
+        rtn += "  P - Pyramid\n";
+        rtn += "  C - Caves\n";
+        rtn += "  A - Alien Camp\n";
+        rtn += "  K - Cliffs\n";
+        rtn += "  M - Mountain\n";
+        rtn += "  S - Shop\n";
+        rtn += "---------------------\n";
+        return rtn;
+    }
+    
     public Location getLocation(int row, int col) {
         return matrix[row][col];
     }
