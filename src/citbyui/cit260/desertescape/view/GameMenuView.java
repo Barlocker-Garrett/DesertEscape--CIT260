@@ -8,6 +8,8 @@ package citbyui.cit260.desertescape.view;
 import citbyui.cit260.desertescape.control.MovementController;
 import desertescape.DesertEscape;
 import desertescape.model.Location;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  *
@@ -26,6 +28,7 @@ public class GameMenuView extends View {
                 + "\nM - Main Menu"
                 + "\nD - Display Game Menu"
                 + "\nV - View Map"
+                + "\nP - Print report of Map"
                 + "\nC - Current Location"
                 + "\n========================");
 
@@ -65,6 +68,9 @@ public class GameMenuView extends View {
                 moveWest();
             case 'C':
                 currentLocation();
+                break;
+            case 'P':
+                printMapReport();
                 break;
             case 'Q':
                 return true;
@@ -106,6 +112,24 @@ public class GameMenuView extends View {
     private void currentLocation() {
         Location l = DesertEscape.getGame().getPlayer().getLocation();
         console.println("You are at: (" + l.getRow() + ", " + l.getCol() + ")");
+    }
+
+    private void printMapReport() {
+        console.println("Where would you like to save the Map?");
+        String pathName = "";
+        try {
+        pathName = keyboard.readLine();
+        } catch (IOException ex){
+            ErrorView.display(this.getClass().getName(), "Improper path name");
+        }
+        try (FileWriter output = new FileWriter(pathName)) {
+            output.write(DesertEscape.getGame().getMap().getMapReport());
+            output.flush();
+            if (output != null)    
+                console.println("Map report has been saved");
+        } catch (IOException ex) {
+            ErrorView.display(this.getClass().getName(), "Error printing Map report");
+        }
     }
 
 }
