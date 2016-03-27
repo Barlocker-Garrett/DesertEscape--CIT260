@@ -14,7 +14,7 @@ public enum LocationType {
     Pyramid,
     Cave,
     Alien_Camp,
-    Cliffs,
+    Kliffs,
     Shop,
     Mountain
 } 
