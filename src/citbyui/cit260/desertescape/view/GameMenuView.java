@@ -116,6 +116,7 @@ public class GameMenuView extends View {
 
     private void printMapReport() {
         console.println("Where would you like to save the Map?");
+        console.println("Example: C:\\Users\\userNameHere\\Desktop\\fileNameHere.txt");
         String pathName = "";
         try {
         pathName = keyboard.readLine();
