@@ -25,6 +25,7 @@ public class GameMenuView extends View {
                 + "\nW - Run West"
                 + "\nI - Inspect"
                 + "\nF - Fill Pit"
+                + "\nT - Cut Down Tree"
                 + "\nM - Main Menu"
                 + "\nD - Display Game Menu"
                 + "\nV - View Map"
@@ -60,17 +61,24 @@ public class GameMenuView extends View {
                 break;
             case 'N':
                 moveNorth();
+                break;
             case 'E':
                 moveEast();
+                break;
             case 'S':
                 moveSouth();
+                break;
             case 'W':
                 moveWest();
+                break;
             case 'C':
                 currentLocation();
                 break;
             case 'P':
                 printMapReport();
+                break;
+            case 'T':
+                CutDownTreeView.CutDownTree();
                 break;
             case 'Q':
                 return true;
